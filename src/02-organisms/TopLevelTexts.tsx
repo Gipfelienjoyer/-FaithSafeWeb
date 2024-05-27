@@ -1,11 +1,15 @@
 import React from 'react';
-import {Typography} from "@mui/material";
+import { Typography, Box } from "@mui/material";
 
 export default function TopLevelTexts() {
     return (
-        <div>
-            <Typography variant={"h4"}>Some random text to replace</Typography>
-            <Typography variant={"h1"}>Faithsafe</Typography>
-        </div>
+        <Box textAlign="center" width="100%">
+            <Typography variant="h4" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' } }}>
+                Some random text to replace
+            </Typography>
+            <Typography variant="h1" sx={{ fontSize: { xs: '2.5rem', md: '6rem' } }}>
+                Faithsafe
+            </Typography>
+        </Box>
     );
 }

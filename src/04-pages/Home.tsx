@@ -10,11 +10,14 @@ export default function Home() {
                 container
                 direction="column"
                 justifyContent="space-between"
+                alignItems="center"
             >
-                <Box mb={5}>
+                <Box mb={5} width="100%">
                     <HomeTopTmpl/>
                 </Box>
-                <HomeContentTmpl/>
+                <Box width="100%">
+                    <HomeContentTmpl/>
+                </Box>
             </Grid>
         </Container>
     )

@@ -12,7 +12,7 @@ export default function HomeTopTmpl() {
                 <TopLevelTexts />
                 <Box mt={15}>
                     <Grid container justifyContent="center">
-                        <Grid item xs={2}>
+                        <Grid item xs={12} sm={6} md={2}>
                             <DownloadButton />
                         </Grid>
                     </Grid>
