@@ -16,6 +16,10 @@ const theme = createTheme({
         },
         h4: {
             fontFamily: 'Jura, sans-serif',
+            fontSize: '2.125rem',
+            '@media (max-width:600px)': {
+                fontSize: '1.5rem',
+            },
         },
         h3: {
             fontFamily: 'Jura, sans-serif',
@@ -25,6 +29,10 @@ const theme = createTheme({
         h1: {
             fontFamily: 'Krona One, sans-serif',
             color: '#9303EB',
+            fontSize: '6rem',
+            '@media (max-width:600px)': {
+                fontSize: '2.5rem',
+            },
         },
         button: {
             fontFamily: 'Jura, sans-serif',
