@@ -4,7 +4,7 @@ import React from "react";
 import {Box, Grid} from "@mui/material";
 import './Tmpl.css';
 
-export default function HomeTmpl() {
+export default function HomeTopTmpl() {
     return (
         <Box mt={10} sx={{ position: 'relative', overflow: 'hidden' }}>
             <div className="background"></div>
