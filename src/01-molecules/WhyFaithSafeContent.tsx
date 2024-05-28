@@ -11,6 +11,7 @@ export default function WhyFaithSafeContent() {
             >
                 <Typography variant="h3">Why Faithsafe?</Typography>
                 <Typography variant="h6">Lorem ipsum your ass</Typography>
+                <Typography variant="h6">Why are you asking? We just want to steal all your data</Typography>
             </Grid>
         </Box>
     )
