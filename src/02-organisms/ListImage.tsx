@@ -1,22 +1,27 @@
-import happyCustomer1 from '../05-assets/happyCustomer1.png';
 import {Box as MuiBox, styled} from '@mui/material';
 
 const Box = styled(MuiBox)(() => ({
-    padding: 3,
+    padding: '0.75em',
     border: '1px solid white',
     backgroundColor: 'white',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
+    borderRadius: '1.5em',
 }));
 
-export default function HappyCustomer1() {
+interface ListImageProps {
+    imgSrc: string
+    imgAlt: string
+}
+
+export default function ListImage({imgSrc, imgAlt}: ListImageProps) {
     return (
         <Box>
             <img
-                src={happyCustomer1}
-                alt="Happy Customer"
+                src={imgSrc}
+                alt={imgAlt}
                 style={{
                     width: '100%',
                     height: '100%',
