@@ -1,6 +1,7 @@
 import axios from "axios";
+import Cookies from "js-cookie"
 
-const API_URL = 'http://api.faithsafe.net';
+const API_URL = 'https://api.faithsafe.net';
 
 interface LoginData {
     username: string;
@@ -11,13 +12,14 @@ interface RegisterData{
     username: string;
     password: string;
     email: string;
-    role: string; //Ig hiä chönnt mä im backend es default inä tuä
 }
 
 export const login = async (data: LoginData) => {
     try {
         const response = await axios.post(`${API_URL}/auth`, data);
-        return response.data;
+        const accessToken = response.headers['authorization'].substring(7);
+        console.log(accessToken)
+        Cookies.set('accessToken', accessToken)
     } catch (error) {
         throw new Error('Login failed');
     }
@@ -25,8 +27,10 @@ export const login = async (data: LoginData) => {
 
 export const register = async (data: RegisterData) => {
     try {
-        const response = await axios.post(`${API_URL}/auth/register`);
-        return response.data;
+        const response = await axios.post(`${API_URL}/auth/register`, data);
+        const accessToken = response.headers['authorization'].substring(7);
+        console.log(accessToken);
+
     } catch (error) {
         throw new Error('Registration failed');
     }

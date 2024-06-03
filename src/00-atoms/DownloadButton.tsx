@@ -6,7 +6,7 @@ export default function DownloadButton() {
     const navigate = useNavigate();
 
     const  handleClick = () => {
-        navigate("/LogIn");
+        navigate("/Register");
     }
 
     return (

@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./04-pages/Home";
 import LogIn from "./04-pages/LogIn";
+import Registration from "./04-pages/Registration";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
             } />
               <Route path="/home" element={
                   <Home/>
+              } />
+              <Route path="/register" element={
+                  <Registration/>
               } />
           </Routes>
         </BrowserRouter>

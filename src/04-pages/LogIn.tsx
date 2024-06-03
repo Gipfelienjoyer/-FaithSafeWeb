@@ -1,72 +1,77 @@
-// src/components/Login.tsx
 import React from 'react';
-import { useFormik } from 'formik';
+import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as yup from 'yup';
-import { login } from '../AuthService';
+import {login} from '../AuthService';
+import {Input, Button} from '@mui/material';
 
 const validationSchema = yup.object({
-    email: yup.string().email('Invalid email format').required('Email is required'),
-    password: yup.string().min(8, 'Password must be at least 8 characters long').required('Password is required'),
+    username: yup.string().min(3, 'Username must be at least 3 characters long').required('Username is required'),
+    password: yup.string().min(4, 'Password must be at least 8 characters long').required('Password is required'),
 });
 
-const Login = () => {
-    const formik = useFormik({
-        initialValues: {
-            username: '',
-            password: '',
-        },
-        validationSchema: validationSchema,
-        onSubmit: async (values, { setSubmitting, setErrors }) => {
-            try {
-                const data = await login(values);
-                console.log('Login successful', data);
-            } catch (error) {
-                setErrors({ username: 'Invalid email or password' });
-                console.error('Login failed', error);
-            } finally {
-                setSubmitting(false);
-            }
-        },
-    });
+interface LoginFormValues {
+    username: string;
+    password: string;
+}
+
+function Login() {
+    const initialValues: LoginFormValues = {
+        username: '',
+        password: '',
+    };
+
+    async function onSubmit(
+        values: LoginFormValues,
+        {setSubmitting, setErrors}: {
+            setSubmitting: (isSubmitting: boolean) => void;
+            setErrors: (errors: Partial<LoginFormValues>) => void
+        }
+    ) {
+        try {
+            await login(values);
+        } catch (error) {
+            setErrors({username: 'Invalid email or password'});
+            console.error('Login failed', error);
+        } finally {
+            setSubmitting(false);
+        }
+    }
 
     return (
         <div>
-            <h1>Login</h1>
-            <form onSubmit={formik.handleSubmit}>
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.username}
-                    />
-                    {formik.touched.username && formik.errors.username ? (
-                        <div>{formik.errors.username}</div>
-                    ) : null}
-                </div>
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        id="password"
-                        name="password"
-                        type="password"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.password}
-                    />
-                    {formik.touched.password && formik.errors.password ? (
-                        <div>{formik.errors.password}</div>
-                    ) : null}
-                </div>
-                <div>
-                    <button type="submit" disabled={formik.isSubmitting}>
-                        Login
-                    </button>
-                </div>
-            </form>
+            <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={onSubmit}
+            >
+                {({isSubmitting}) => (
+                    <Form>
+                        <div>
+                            <Field
+                                as={Input}
+                                name="username"
+                                type="text"
+                                placeholder="Username"
+                            />
+                            <ErrorMessage name="username" component="div"/>
+                        </div>
+                        <div>
+                            <Field
+                                as={Input}
+                                name="password"
+                                type="password"
+                                placeholder="Password"
+                            />
+                            <ErrorMessage name="password" component="div"/>
+                        </div>
+                        <div>
+                            <Button type="submit" disabled={isSubmitting}>
+                                Login
+                            </Button>
+                        </div>
+                    </Form>
+                )}
+            </Formik>
         </div>
     );
 };
