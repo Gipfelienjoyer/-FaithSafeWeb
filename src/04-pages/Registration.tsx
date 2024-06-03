@@ -114,11 +114,7 @@ function Registration() {
                         </Field>
                     </div>
                     <div>
-                        <button
-                            type="submit"
-                            disabled={isSubmitting}>
-                            Register
-                        </button>
+                        <Button type={"submit"}>Register</Button>
                     </div>
                 </Form>
 

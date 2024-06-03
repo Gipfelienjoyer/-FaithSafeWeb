@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./04-pages/Home";
 import LogIn from "./04-pages/LogIn";
 import Registration from "./04-pages/Registration";
+import Tos from "./04-pages/tos";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
               <Route path="/register" element={
                   <Registration/>
               } />
+              <Route path="/tos" element={
+                  <Tos></Tos>
+              }/>
           </Routes>
         </BrowserRouter>
     </div>

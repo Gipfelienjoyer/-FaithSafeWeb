@@ -11,7 +11,7 @@ const links = [
     {text: 'Datenschutzerklärung', url: '/Datenschutzerklärung'},
     {text: 'Impressum', url: '/Impressum'},
     {text: 'TikTok', url: '/TikTok'},
-    {text: 'AGB', url: '/AGB'},
+    {text: 'AGB', url: '/tos'},
     {text: 'Cookies', url: '/Cookies'},
 ];
 
