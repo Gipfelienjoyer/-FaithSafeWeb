@@ -1,9 +1,7 @@
 import React from "react";
-import {Button, Typography} from "@mui/material";
 import * as yup from "yup";
 import { register } from "../AuthService";
-import FormikTextField from "../01-molecules/FormikTextField";
-import FormContainer from "../01-molecules/FormContainer";
+import RegisterForm from "../02-organisms/RegisterForm";
 
 const validationSchema = yup.object({
     username: yup.string().min(8, 'Username must at least be 8 characters long').required('Username is required').matches(/^[a-zA-Z0-9@]+$/),
@@ -45,25 +43,10 @@ export default function RegisterPage() {
     }
 
     return (
-        <FormContainer
+        <RegisterForm
+            onSubmit={onSubmit}
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={onSubmit}
-        >
-            {({ isSubmitting }) => (
-                <>
-                    <Typography variant="h5" component="h1" gutterBottom>
-                        Register
-                    </Typography>
-                    <FormikTextField name="username" label="Username *" />
-                    <FormikTextField name="email" label="Email *" />
-                    <FormikTextField name="password" label="Password *" type="password" />
-                    <FormikTextField name="validatePassword" label="Reenter Password *" type="password" />
-                    <Button type="submit" disabled={isSubmitting}>
-                        {isSubmitting ? 'Registering...' : 'Register'}
-                    </Button>
-                </>
-            )}
-        </FormContainer>
+        />
     );
 }
