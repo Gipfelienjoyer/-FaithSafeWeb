@@ -3,7 +3,7 @@ import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./04-pages/Home";
 import LogIn from "./04-pages/LogIn";
-import Registration from "./04-pages/Registration";
+import RegisterPage from "./04-pages/RegisterPage";
 import Tos from "./04-pages/tos";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
                   <Home/>
               } />
               <Route path="/register" element={
-                  <Registration/>
+                  <RegisterPage/>
               } />
               <Route path="/tos" element={
                   <Tos></Tos>

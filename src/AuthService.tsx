@@ -32,6 +32,6 @@ export const register = async (data: RegisterData) => {
         console.log(accessToken);
 
     } catch (error) {
-        throw new Error('Registration failed');
+        throw new Error('RegisterPage failed');
     }
 }
