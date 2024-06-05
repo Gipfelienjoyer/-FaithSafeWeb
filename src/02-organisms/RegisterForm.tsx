@@ -39,7 +39,7 @@ export default function RegisterForm({ initialValues, validationSchema, onSubmit
                                 Your Email is: <b>{submittedEmail}</b>
                             </Typography>
                             <Button type="submit" disabled={isSubmitting}>
-                                Go to Login
+                                <a href="/login" style={{ textDecoration: 'none' }}>Go to Login</a>
                             </Button>
                         </Box>
                     ) : (
