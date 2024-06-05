@@ -21,7 +21,7 @@ export const login = async (data: LoginData) => {
         console.log(accessToken)
         Cookies.set('accessToken', accessToken)
     } catch (error) {
-        throw new Error('Login failed');
+        throw new Error('LoginPage failed');
     }
 };
 

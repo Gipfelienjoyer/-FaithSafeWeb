@@ -14,7 +14,7 @@ interface LoginFormValues {
     password: string;
 }
 
-function Login() {
+function LoginPage() {
     const initialValues: LoginFormValues = {
         username: '',
         password: '',
@@ -31,7 +31,7 @@ function Login() {
             await login(values);
         } catch (error) {
             setErrors({username: 'Invalid email or password'});
-            console.error('Login failed', error);
+            console.error('LoginPage failed', error);
         } finally {
             setSubmitting(false);
         }
@@ -74,6 +74,6 @@ function Login() {
             </Formik>
         </div>
     );
-};
+}
 
-export default Login;
+export default LoginPage;

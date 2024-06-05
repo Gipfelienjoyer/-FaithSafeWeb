@@ -1,8 +1,8 @@
 import React from "react";
 import * as yup from "yup";
-import { register } from "../AuthService";
+import {register} from "../AuthService";
 import RegisterForm from "../02-organisms/RegisterForm";
-import { Box, Card, CardContent, Grid, useMediaQuery, useTheme, Theme } from "@mui/material";
+import FormTmpl from "../03-templates/FormTmpl";
 
 const validationSchema = yup.object({
     username: yup.string().min(4, 'Username must at least be 4 characters long').required('Username is required').matches(/^[a-zA-Z0-9@]+$/),
@@ -19,10 +19,6 @@ interface RegistrationFormValues {
 }
 
 export default function RegisterPage() {
-    const theme = useTheme<Theme>();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-
     const initialValues: RegistrationFormValues = {
         username: '',
         email: '',
@@ -32,7 +28,7 @@ export default function RegisterPage() {
 
     async function onSubmit(
         values: RegistrationFormValues,
-        { setSubmitting, setErrors }: {
+        {setSubmitting, setErrors}: {
             setSubmitting: (isSubmitting: boolean) => void;
             setErrors: (errors: Partial<RegistrationFormValues>) => void;
         }
@@ -40,7 +36,7 @@ export default function RegisterPage() {
         try {
             await register(values);
         } catch (error) {
-            setErrors({ username: 'Invalid email or password' });
+            setErrors({username: 'Invalid email or password'});
             console.error('RegisterPage failed', error);
         } finally {
             setSubmitting(false);
@@ -48,18 +44,12 @@ export default function RegisterPage() {
     }
 
     return (
-        <Grid container justifyContent="center" alignItems="center" sx={{ height: '75vh' }}>
-            <Box width={isMobile ? '95%' : isTablet ? '50%' : '30%'}>
-                <Card>
-                    <CardContent>
-                        <RegisterForm
-                            onSubmit={onSubmit}
-                            initialValues={initialValues}
-                            validationSchema={validationSchema}
-                        />
-                    </CardContent>
-                </Card>
-            </Box>
-        </Grid>
+        <FormTmpl>
+            <RegisterForm
+                onSubmit={onSubmit}
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+            />
+        </FormTmpl>
     );
 }
