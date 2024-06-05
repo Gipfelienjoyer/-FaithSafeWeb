@@ -7,12 +7,12 @@ import Footer from "../02-organisms/Footer";
 import React from "react";
 
 const links = [
-    {text: 'Instagram', url: '/Instagram'},
-    {text: 'Datenschutzerklärung', url: '/Datenschutzerklärung'},
-    {text: 'Impressum', url: '/Impressum'},
-    {text: 'TikTok', url: '/TikTok'},
+    {text: 'Instagram', url: '/instagram'},
+    {text: 'Privacy Policy', url: '/privacy-policy'},
+    {text: 'Imprint', url: '/imprint'},
+    {text: 'TikTok', url: '/tikTok'},
     {text: 'AGB', url: '/tos'},
-    {text: 'Cookies', url: '/Cookies'},
+    {text: 'Cookies', url: '/cookies'},
 ];
 
 export default function HomeContentTmpl() {

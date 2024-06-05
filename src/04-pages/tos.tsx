@@ -1,3 +1,6 @@
+// noinspection HtmlUnknownAnchorTarget
+
+//Webstorm Config Above!
 import React from 'react';
 import {Typography} from "@mui/material";
 
@@ -11,7 +14,7 @@ const LegalTerms = () => {
                 <p>Lorrainestrasse 1, Bern, Bern 3000</p>
 
                 <p><strong>Website:</strong></p>
-                <a href="http://www.faithsafe.com">http://www.faithsafe.com</a>
+                <a href="https://www.faithsafe.com">https://www.faithsafe.com</a>
 
                 <p><strong>Contact:</strong></p>
                 <p>Email: <a href="mailto:support@faithsafe.net">support@faithsafe.net</a></p>
