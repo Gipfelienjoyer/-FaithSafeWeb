@@ -11,6 +11,10 @@ const theme = createTheme({
         },
     },
     typography: {
+        body2: {
+            fontFamily: 'Jura, sans-serif',
+            color: '#283593',
+        },
         h6: {
             fontFamily: 'Jura, sans-serif',
         },

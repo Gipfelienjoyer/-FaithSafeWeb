@@ -32,6 +32,7 @@ export default function RegisterForm({initialValues, validationSchema, onSubmit}
                     <FormikTextField name="email" label="Email *"/>
                     <FormikTextField name="password" label="Password *" type="password"/>
                     <FormikTextField name="validatePassword" label="Re-enter Password *" type="password"/>
+                    <Typography variant={"body2"}><b><a href="/login" style={{ textDecoration: 'none' }}>Already have an account? Log in</a></b></Typography>
                     <Button type="submit" disabled={isSubmitting}>
                         {isSubmitting ? 'Registering...' : 'Register'}
                     </Button>
