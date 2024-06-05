@@ -48,13 +48,22 @@ export default function RegisterPage() {
             setErrors: (errors: Partial<RegistrationFormValues>) => void;
         }
     ) {
+        let hasError = false;
+
         try {
+            console.log('Submitting form with values:', values);
             setSubmittedEmail(values.email);
             await register(values);
+            console.log('Registration successful');
         } catch (error) {
-            setErrors({ username: 'Invalid email or password' });
-        } finally {
-            setSubmitting(false);
+            console.error('Registration error:', error);
+            setErrors({ username: 'Username already taken' });
+            hasError = true;
+        }
+
+        setSubmitting(false);
+
+        if (!hasError) {
             setEmailView(true);
             query.set('email-view', 'true');
             query.set('email', values.email);

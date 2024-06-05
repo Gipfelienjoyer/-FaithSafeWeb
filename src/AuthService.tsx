@@ -8,7 +8,7 @@ interface LoginData {
     password: string;
 }
 
-interface RegisterData{
+interface RegisterData {
     username: string;
     password: string;
     email: string;
@@ -26,9 +26,5 @@ export const login = async (data: LoginData) => {
 };
 
 export const register = async (data: RegisterData) => {
-    try {
-        await axios.post(`${API_URL}/auth/register`, data);
-    } catch (error) {
-        throw new Error('RegisterPage failed');
-    }
+    await axios.post(`${API_URL}/auth/register`, data);
 }
