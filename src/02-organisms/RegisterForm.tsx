@@ -10,9 +10,10 @@ interface RegisterFormProps {
     validationSchema: yup.ObjectSchema<any>;
     onSubmit: any; // any is not good:(
     emailView: boolean;
+    submittedEmail: string
 }
 
-export default function RegisterForm({ initialValues, validationSchema, onSubmit, emailView }: RegisterFormProps) {
+export default function RegisterForm({ initialValues, validationSchema, onSubmit, emailView, submittedEmail }: RegisterFormProps) {
     return (
         <FormContainer
             initialValues={initialValues}
@@ -34,6 +35,8 @@ export default function RegisterForm({ initialValues, validationSchema, onSubmit
                         <Box textAlign="center" mt={4}>
                             <Typography variant="h6" component="p" gutterBottom>
                                 Please confirm your email address to complete the registration.
+
+                                Your Email is: <b>{submittedEmail}</b>
                             </Typography>
                         </Box>
                     ) : (
