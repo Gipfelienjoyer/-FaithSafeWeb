@@ -1,10 +1,10 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import {register} from "../AuthService";
+import Cookies from "js-cookie";
 import RegisterForm from "../02-organisms/RegisterForm";
 import FormTmpl from "../03-templates/FormTmpl";
-import {useNavigate} from "react-router-dom";
-import Cookies from "js-cookie";
+import {register} from "../AuthService";
 
 const validationSchema = yup.object({
     username: yup.string().min(4, 'Username must at least be 4 characters long').required('Username is required').matches(/^[a-zA-Z0-9@]+$/),
@@ -21,6 +21,9 @@ interface RegistrationFormValues {
 }
 
 export default function RegisterPage() {
+    const query = new URLSearchParams(useLocation().search);
+    const initialEmailView = query.get('email-view') === 'true';
+    const [emailView, setEmailView] = useState(initialEmailView);
     const navigate = useNavigate();
     const accessToken = Cookies.get("accessToken") || "";
     const initialValues: RegistrationFormValues = {
@@ -38,7 +41,7 @@ export default function RegisterPage() {
 
     async function onSubmit(
         values: RegistrationFormValues,
-        {setSubmitting, setErrors}: {
+        { setSubmitting, setErrors }: {
             setSubmitting: (isSubmitting: boolean) => void;
             setErrors: (errors: Partial<RegistrationFormValues>) => void;
         }
@@ -46,15 +49,19 @@ export default function RegisterPage() {
         try {
             await register(values);
         } catch (error) {
-            setErrors({username: 'Invalid email or password'});
+            setErrors({ username: 'Invalid email or password' });
         } finally {
             setSubmitting(false);
+            setEmailView(true);
+            query.set('email-view', 'true');
+            navigate({ search: query.toString() }, { replace: true });
         }
     }
 
     return (
         <FormTmpl>
             <RegisterForm
+                emailView={emailView}
                 onSubmit={onSubmit}
                 initialValues={initialValues}
                 validationSchema={validationSchema}
