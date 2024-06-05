@@ -38,6 +38,9 @@ export default function RegisterForm({ initialValues, validationSchema, onSubmit
 
                                 Your Email is: <b>{submittedEmail}</b>
                             </Typography>
+                            <Button type="submit" disabled={isSubmitting}>
+                                Go to Login
+                            </Button>
                         </Box>
                     ) : (
                         <>
