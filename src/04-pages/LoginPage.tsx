@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import * as yup from 'yup';
 import {login} from '../AuthService';
 import FormTmpl from "../03-templates/FormTmpl";
 import LoginForm from "../02-organisms/LoginForm";
+import {useNavigate} from "react-router-dom";
+import Cookies from "js-cookie";
 
 const validationSchema = yup.object({
     username: yup.string().required('Username is required'),
@@ -15,10 +17,18 @@ interface LoginFormValues {
 }
 
 function LoginPage() {
+    const navigate = useNavigate();
+    const accessToken = Cookies.get("accessToken") || "";
     const initialValues: LoginFormValues = {
         username: '',
         password: '',
     };
+
+    useEffect(() => {
+        if (accessToken) {
+            navigate("/");
+        }
+    }, [navigate, accessToken]);
 
     async function onSubmit(
         values: LoginFormValues,

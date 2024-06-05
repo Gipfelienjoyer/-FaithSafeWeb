@@ -27,10 +27,7 @@ export const login = async (data: LoginData) => {
 
 export const register = async (data: RegisterData) => {
     try {
-        const response = await axios.post(`${API_URL}/auth/register`, data);
-        const accessToken = response.headers['authorization'].substring(7);
-        console.log(accessToken);
-
+        await axios.post(`${API_URL}/auth/register`, data);
     } catch (error) {
         throw new Error('RegisterPage failed');
     }

@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import * as yup from "yup";
 import {register} from "../AuthService";
 import RegisterForm from "../02-organisms/RegisterForm";
 import FormTmpl from "../03-templates/FormTmpl";
+import {useNavigate} from "react-router-dom";
+import Cookies from "js-cookie";
 
 const validationSchema = yup.object({
     username: yup.string().min(4, 'Username must at least be 4 characters long').required('Username is required').matches(/^[a-zA-Z0-9@]+$/),
@@ -19,12 +21,20 @@ interface RegistrationFormValues {
 }
 
 export default function RegisterPage() {
+    const navigate = useNavigate();
+    const accessToken = Cookies.get("accessToken") || "";
     const initialValues: RegistrationFormValues = {
         username: '',
         email: '',
         password: '',
         validatePassword: '',
     }
+
+    useEffect(() => {
+        if (accessToken) {
+            navigate("/");
+        }
+    }, [navigate, accessToken]);
 
     async function onSubmit(
         values: RegistrationFormValues,
@@ -37,7 +47,6 @@ export default function RegisterPage() {
             await register(values);
         } catch (error) {
             setErrors({username: 'Invalid email or password'});
-            console.error('RegisterPage failed', error);
         } finally {
             setSubmitting(false);
         }
