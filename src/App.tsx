@@ -6,8 +6,9 @@ import LogIn from "./04-pages/LoginPage";
 import RegisterPage from "./04-pages/RegisterPage";
 import Tos from "./04-pages/tos";
 import DownloadPage from "./04-pages/DownloadPage";
+import VerifyEmailPage from "./04-pages/VerifyEmailPage";
 
-function App() {
+export default function App() {
     return (
         <div className="App">
             <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
                     <Route path="/login" element={<LogIn/>}/>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/register" element={<RegisterPage/>}/>
+                    <Route path="/register/verify" element={<VerifyEmailPage />}/>
                     <Route path="/tos" element={<Tos />}/>
                     <Route path="/download" element={<DownloadPage />}/>
                 </Routes>
@@ -22,5 +24,3 @@ function App() {
         </div>
     );
 }
-
-export default App;

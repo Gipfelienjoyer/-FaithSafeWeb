@@ -16,14 +16,15 @@ interface LoginFormValues {
     password: string;
 }
 
+export const initialValues: LoginFormValues = {
+    username: '',
+    password: '',
+};
+
 function LoginPage() {
     const navigate = useNavigate();
     const accessToken = Cookies.get("accessToken") || "";
-    const initialValues: LoginFormValues = {
-        username: '',
-        password: '',
-    };
-
+    
     useEffect(() => {
         if (accessToken) {
             navigate("/");

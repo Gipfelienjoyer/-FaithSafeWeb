@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import {  useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import Cookies from "js-cookie";
 import RegisterForm from "../02-organisms/RegisterForm";
@@ -21,11 +21,6 @@ interface RegistrationFormValues {
 }
 
 export default function RegisterPage() {
-    const query = new URLSearchParams(useLocation().search);
-    const initialEmailView = query.get('email-view') === 'true';
-    const initialSubmittedEmail = query.get('email') || '';
-    const [emailView, setEmailView] = useState(initialEmailView);
-    const [submittedEmail, setSubmittedEmail] = useState(initialSubmittedEmail);
     const navigate = useNavigate();
     const accessToken = Cookies.get("accessToken") || "";
     const initialValues: RegistrationFormValues = {
@@ -52,7 +47,6 @@ export default function RegisterPage() {
 
         try {
             console.log('Submitting form with values:', values);
-            setSubmittedEmail(values.email);
             await register(values);
             console.log('Registration successful');
         } catch (error) {
@@ -64,18 +58,13 @@ export default function RegisterPage() {
         setSubmitting(false);
 
         if (!hasError) {
-            setEmailView(true);
-            query.set('email-view', 'true');
-            query.set('email', values.email);
-            navigate({ search: query.toString() }, { replace: true });
+            navigate(`/register/verify?email=${values.email}`);
         }
     }
 
     return (
         <FormTmpl>
             <RegisterForm
-                submittedEmail={submittedEmail}
-                emailView={emailView}
                 onSubmit={onSubmit}
                 initialValues={initialValues}
                 validationSchema={validationSchema}
