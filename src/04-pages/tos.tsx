@@ -18,7 +18,7 @@ const LegalTerms = () => {
 
                 <p><strong>Contact:</strong></p>
                 <p>Email: <a href="mailto:support@faithsafe.net">support@faithsafe.net</a></p>
-                <p>Mail: Lorrainestrasse 1, Bern, Bern 3000, Switzerland</p>
+                <p>Lorrainestrasse 1, Bern, Bern 3000, Switzerland</p>
 
                 <h2>LEGAL TERMS</h2>
                 <p>These Legal Terms constitute a legally binding agreement between you and FaithSafe regarding your
