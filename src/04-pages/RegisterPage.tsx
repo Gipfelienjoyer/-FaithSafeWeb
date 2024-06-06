@@ -4,7 +4,7 @@ import * as yup from "yup";
 import Cookies from "js-cookie";
 import RegisterForm from "../02-organisms/RegisterForm";
 import FormTmpl from "../03-templates/FormTmpl";
-import { register } from "../AuthService";
+import AuthService from "../AuthService";
 
 const validationSchema = yup.object({
     username: yup.string().min(4, 'Username must at least be 4 characters long').required('Username is required').matches(/^[a-zA-Z0-9@]+$/),
@@ -46,8 +46,9 @@ export default function RegisterPage() {
         let hasError = false;
 
         try {
+            const authService = new AuthService();
             console.log('Submitting form with values:', values);
-            await register(values);
+            await authService.register(values);
             console.log('Registration successful');
         } catch (error) {
             console.error('Registration error:', error);
