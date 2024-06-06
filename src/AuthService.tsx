@@ -19,7 +19,7 @@ export const login = async (data: LoginData) => {
         const response = await axios.post(`${API_URL}/auth`, data);
         const accessToken = response.headers['authorization'].substring(7);
         console.log(accessToken)
-        Cookies.set('accessToken', accessToken)
+        Cookies.set('accessToken', accessToken, { expires: 1 / 72 })
     } catch (error) {
         throw new Error('LoginPage failed');
     }

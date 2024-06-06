@@ -5,8 +5,8 @@ import {useNavigate} from "react-router-dom";
 export default function DownloadButton() {
     const navigate = useNavigate();
 
-    const  handleClick = () => {
-        navigate("/Register");
+    const handleClick = () => {
+        navigate("/download");
     }
 
     return (

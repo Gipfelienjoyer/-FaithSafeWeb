@@ -39,6 +39,7 @@ function LoginPage() {
     ) {
         try {
             await login(values);
+            navigate("/");
         } catch (error) {
             setErrors({username: 'Invalid email or password'});
             console.error('LoginPage failed', error);
