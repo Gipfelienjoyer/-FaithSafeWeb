@@ -19,6 +19,7 @@ export default function App() {
                     <Route path="/register/verify" element={<VerifyEmailPage />}/>
                     <Route path="/tos" element={<Tos />}/>
                     <Route path="/download" element={<DownloadPage />}/>
+                    <Route path="/home" element={<Home/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

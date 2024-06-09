@@ -25,7 +25,8 @@ export default function ListImage({imgSrc, imgAlt}: ListImageProps) {
                 style={{
                     width: '100%',
                     height: '100%',
-                    objectFit: 'cover'
+                    objectFit: 'cover',
+                    borderRadius: '1em'
                 }}
             />
         </Box>

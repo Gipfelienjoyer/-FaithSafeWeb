@@ -32,13 +32,28 @@ const socialLinks = [
     { icon: <LinkedInIcon />, label: 'LinkedIn', href: '#' },
 ];
 
+const firstTitle = "What is FaithSafe?";
+const firstSubtitles = [
+   "In today's digital age, managing multiple passwords can be a challenge. FaithSafe offers a secure, user-friendly solution for storing and organizing your passwords. With advanced encryption, your data remains safe from prying eyes."
+];
+
+const secondTitle = "Faithsafe Benefits";
+const secondSubtitles = [
+    "Secure and reliable",
+    "Easy to use",
+    "24/7 support"
+];
 export default function HomeContentTmpl() {
     return (
         <>
             <Grid container spacing={2}>
                 <PicAndContent>
                     <ListImage imgAlt={"Happy Customer"} imgSrc={happyCustomer1}/>
-                    <WhyFaithSafeContent/>
+                    <WhyFaithSafeContent title={firstTitle} subtitles={firstSubtitles} />
+                </PicAndContent>
+                <PicAndContent>
+                    <WhyFaithSafeContent title={secondTitle} subtitles={secondSubtitles}/>
+                    <ListImage imgSrc={happyCustomer1} imgAlt={"Happy Customer"}/>
                 </PicAndContent>
             </Grid>
             <Box mt={'5vh'}>

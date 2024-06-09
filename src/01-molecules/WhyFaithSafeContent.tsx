@@ -1,6 +1,13 @@
-import {Box, Grid, Typography} from "@mui/material";
+import React from 'react';
+import { Box, Grid, Typography } from "@mui/material";
 
-export default function WhyFaithSafeContent() {
+// Define an interface for the component props
+interface WhyFaithSafeContentProps {
+    title: string;
+    subtitles: string[];
+}
+
+const WhyFaithSafeContent: React.FC<WhyFaithSafeContentProps> = ({ title, subtitles }) => {
     return (
         <Box ml={{ xs: 0, md: 10 }} width="100%">
             <Grid
@@ -9,10 +16,13 @@ export default function WhyFaithSafeContent() {
                 justifyContent="flex-start"
                 alignItems="flex-start"
             >
-                <Typography variant="h3">Why Faithsafe?</Typography>
-                <Typography variant="h6">Lorem ipsum your ass</Typography>
-                <Typography variant="h6">Why are you asking? We just want to steal all your data</Typography>
+                <Typography variant="h3">{title}</Typography>
+                {subtitles.map((subtitle, index) => (
+                    <Typography key={index} variant="h6">{subtitle}</Typography>
+                ))}
             </Grid>
         </Box>
-    )
+    );
 }
+
+export default WhyFaithSafeContent;
