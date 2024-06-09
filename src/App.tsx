@@ -7,6 +7,7 @@ import RegisterPage from "./04-pages/RegisterPage";
 import Tos from "./04-pages/tos";
 import DownloadPage from "./04-pages/DownloadPage";
 import VerifyEmailPage from "./04-pages/VerifyEmailPage";
+import Impressum from "./04-pages/impressum";
 
 export default function App() {
     return (
@@ -20,6 +21,7 @@ export default function App() {
                     <Route path="/tos" element={<Tos />}/>
                     <Route path="/download" element={<DownloadPage />}/>
                     <Route path="/home" element={<Home/>}/>
+                    <Route path="/imprint" element={<Impressum/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
