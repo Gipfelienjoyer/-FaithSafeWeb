@@ -11,7 +11,7 @@ interface User {
     emailVerified: boolean;
 }
 
-const UserListPage: React.FC = () => {
+export default function UserListPage() {
     const [users, setUsers] = useState<User[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -78,7 +78,5 @@ const UserListPage: React.FC = () => {
                 </Table>
             </TableContainer>
         </Container>
-    );
+    )
 }
-
-export default UserListPage;
