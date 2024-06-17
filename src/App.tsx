@@ -9,6 +9,34 @@ import DownloadPage from "./04-pages/DownloadPage";
 import VerifyEmailPage from "./04-pages/VerifyEmailPage";
 import Impressum from "./04-pages/impressum";
 import UserListPage from "./04-pages/UserListPage";
+import FacebookIcon from "@mui/icons-material/GitHub";
+import TwitterIcon from "@mui/icons-material/X";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Footer from "./02-organisms/Footer";
+import {Box} from "@mui/material";
+
+const productLinks = [
+    { label: 'Features', href: '#' },
+    { label: 'Download', href: '/download' },
+    { label: 'Pricing', href: '#' },
+    { label: 'FAQs', href: '#' },
+];
+
+const companyLinks = [
+    { label: 'About us', href: '#' },
+];
+
+const legalLinks = [
+    { label: 'Terms', href: '/tos' },
+    { label: 'Privacy', href: '#' },
+    { label: 'Contact', href: '/imprint' },
+];
+
+const socialLinks = [
+    { icon: <FacebookIcon />, label: 'GitHub', href: '#' },
+    { icon: <TwitterIcon />, label: 'X', href: '#' },
+    { icon: <LinkedInIcon />, label: 'LinkedIn', href: '#' },
+];
 
 export default function App() {
     return (
@@ -26,6 +54,14 @@ export default function App() {
                     <Route path="/admin/list" element={<UserListPage/>}/>
                 </Routes>
             </BrowserRouter>
+            <Box mt={'5vh'}>
+                <Footer
+                    productLinks={productLinks}
+                    companyLinks={companyLinks}
+                    legalLinks={legalLinks}
+                    socialLinks={socialLinks}
+                />
+            </Box>
         </div>
     );
 }
