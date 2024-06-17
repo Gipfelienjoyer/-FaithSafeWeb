@@ -14,9 +14,9 @@ export default function DownloadTitle() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'center', // Ensures that the content is centered vertically
-                width: '100%', // Ensure the container takes full width
-                padding: 2, // Adds some padding to ensure the content is not too tight to the edges
+                justifyContent: 'center',
+                width: '100%',
+                padding: 2,
             }}
         >
             <Stack spacing={2} useFlexGap sx={{ width: { xs: '100%', sm: '70%' } }}>
