@@ -18,7 +18,6 @@ import {Box} from "@mui/material";
 const productLinks = [
     { label: 'Features', href: '#' },
     { label: 'Download', href: '/download' },
-    { label: 'Pricing', href: '#' },
     { label: 'FAQs', href: '#' },
 ];
 

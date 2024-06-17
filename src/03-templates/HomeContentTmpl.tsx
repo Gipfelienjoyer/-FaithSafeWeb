@@ -7,8 +7,6 @@ import SC2022041200010 from '../05-assets/SC2022041200010.jpg';
 import SC202SC2024040800064 from '../05-assets/SC2024040800064.jpg';
 import React from "react";
 
-
-
 const firstTitle = "What is FaithSafe?";
 const firstSubtitles = [
    "In today's digital age, managing multiple passwords can be a challenge. FaithSafe offers a secure, user-friendly solution for storing and organizing your passwords. With advanced encryption, your data remains safe from prying eyes."
