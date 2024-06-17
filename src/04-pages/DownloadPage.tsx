@@ -2,11 +2,12 @@ import React, {useEffect} from 'react';
 import windowsLogo from '../05-assets/windows-logo.png';
 import macLogo from '../05-assets/mac-logo.png';
 import DownloadCards from "../02-organisms/DownloadCards";
-import { Grid, Container } from "@mui/material";
+import {Grid, Container} from "@mui/material";
 import DownloadTitle from "../02-organisms/DownloadTitle";
 import DownloadService from "../06-Services/DownloadService";
 import {useNavigate} from "react-router-dom";
 import Cookies from "js-cookie";
+import KoFiWidget from "../02-organisms/KoFiWidget";
 
 export interface DownloadDataProps {
     title: string;
@@ -35,15 +36,15 @@ const downloadData: DownloadDataProps[] = [
         title: 'Windows',
         logo: windowsLogo,
         buttons: [
-            { label: 'Download .exe', onClick: () => downloadFile('exe') },
-            { label: 'Download .msi', onClick: () => downloadFile('msi') },
+            {label: 'Download .exe', onClick: () => downloadFile('exe')},
+            {label: 'Download .msi', onClick: () => downloadFile('msi')},
         ],
     },
     {
         title: 'Mac',
         logo: macLogo,
         buttons: [
-            { label: 'Download .app', onClick: () => downloadFile('app') },
+            {label: 'Download .app', onClick: () => downloadFile('app')},
         ],
     },
 ];
@@ -59,13 +60,20 @@ export default function DownloadPage() {
     }, [navigate, accessToken]);
 
     return (
-        <Container>
-            <DownloadTitle />
-            <Grid container spacing={2} justifyContent="center">
-                <Grid item xs={12} sm={10} md={8}>
-                    <DownloadCards downloadData={downloadData} />
+        <>
+            <Container>
+                <DownloadTitle/>
+                <Grid container spacing={2} justifyContent="center">
+                    <Grid item xs={12} sm={10} md={8}>
+                        <DownloadCards downloadData={downloadData}/>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </Container>
+            </Container>
+            <iframe id='kofiframe' src='https://ko-fi.com/faithsafe/?hidefeed=true&widget=true&embed=true&preview=true'
+                    style={{border: 'none', width: '100%', padding: '4px', background: '#f9f9f9', height: '712'}}
+                    title='faithsafe'>
+            </iframe>
+
+        </>
     );
 }
