@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
-import AuthService from "../AuthService";
+import AuthService from "../06-Services/AuthService";
 import {useNavigate} from "react-router-dom";
 
 export interface User {

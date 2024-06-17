@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie"
-import {ChangeEmailFormValues} from "./04-pages/VerifyEmailPage";
-import {User} from "./04-pages/UserListPage";
+import {ChangeEmailFormValues} from "../04-pages/VerifyEmailPage";
+import {User} from "../04-pages/UserListPage";
 import {jwtDecode, JwtPayload} from "jwt-decode";
 
 const API_URL = 'https://api.faithsafe.net';

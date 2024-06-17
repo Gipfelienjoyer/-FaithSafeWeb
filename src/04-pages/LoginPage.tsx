@@ -4,7 +4,7 @@ import FormTmpl from "../03-templates/FormTmpl";
 import LoginForm from "../02-organisms/LoginForm";
 import {useNavigate} from "react-router-dom";
 import Cookies from "js-cookie";
-import AuthService from "../AuthService";
+import AuthService from "../06-Services/AuthService";
 
 const validationSchema = yup.object({
     username: yup.string().required('Username is required'),

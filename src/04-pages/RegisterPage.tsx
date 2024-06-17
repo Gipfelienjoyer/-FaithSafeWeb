@@ -4,7 +4,7 @@ import * as yup from "yup";
 import Cookies from "js-cookie";
 import RegisterForm from "../02-organisms/RegisterForm";
 import FormTmpl from "../03-templates/FormTmpl";
-import AuthService from "../AuthService";
+import AuthService from "../06-Services/AuthService";
 
 const validationSchema = yup.object({
     username: yup.string().min(4, 'Username must at least be 4 characters long').required('Username is required').matches(/^[a-zA-Z0-9@]+$/),

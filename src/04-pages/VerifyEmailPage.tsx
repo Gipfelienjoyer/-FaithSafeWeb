@@ -5,7 +5,7 @@ import FormTmpl from "../03-templates/FormTmpl";
 import FormCardHeader from "../01-molecules/FormCardHeader";
 import NewEmailForm from "../02-organisms/NewEmailForm";
 import * as yup from "yup";
-import AuthService from "../AuthService";
+import AuthService from "../06-Services/AuthService";
 
 const validationSchema = yup.object({
     username: yup.string().required('Username is required'),
