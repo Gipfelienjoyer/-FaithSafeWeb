@@ -18,7 +18,7 @@ import {Box} from "@mui/material";
 const productLinks = [
     { label: 'Features', href: '#' },
     { label: 'Download', href: '/download' },
-    { label: 'FAQs', href: '#' },
+    { label: 'FAQs', href: '/#faq' },
 ];
 
 const companyLinks = [
@@ -51,7 +51,7 @@ export default function App() {
                     <Route path="/home" element={<Home/>}/>
                     <Route path="/imprint" element={<Impress/>}/>
                     <Route path="/admin/list" element={<UserListPage/>}/>
-                </Routes>
+                    </Routes >
             </BrowserRouter>
             <Box mt={'5vh'}>
                 <Footer
