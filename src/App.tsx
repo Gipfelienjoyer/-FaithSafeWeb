@@ -15,7 +15,7 @@ import {Box} from "@mui/material";
 import PrivacyPolicyPage from "./04-pages/PrivacyPolicyPage";
 
 const productLinks = [
-    { label: 'Features', href: '#' },
+    { label: 'Home', href: '/' },
     { label: 'Download', href: '/download' },
     { label: 'FAQs', href: '/#faq' },
 ];
@@ -27,7 +27,7 @@ const companyLinks = [
 const legalLinks = [
     { label: 'Terms', href: '/tos' },
     { label: 'Privacy', href: 'privacy' },
-    { label: 'Contact', href: '/imprint' },
+    { label: 'Imprint', href: '/imprint' },
 ];
 
 const socialLinks = [
