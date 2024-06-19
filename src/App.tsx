@@ -7,7 +7,7 @@ import RegisterPage from "./04-pages/RegisterPage";
 import Tos from "./04-pages/tos";
 import DownloadPage from "./04-pages/DownloadPage";
 import VerifyEmailPage from "./04-pages/VerifyEmailPage";
-import Impressum from "./04-pages/impressum";
+import Impress from "./04-pages/Impress";
 import UserListPage from "./04-pages/UserListPage";
 import FacebookIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/X";
@@ -49,7 +49,7 @@ export default function App() {
                     <Route path="/tos" element={<Tos />}/>
                     <Route path="/download" element={<DownloadPage />}/>
                     <Route path="/home" element={<Home/>}/>
-                    <Route path="/imprint" element={<Impressum/>}/>
+                    <Route path="/imprint" element={<Impress/>}/>
                     <Route path="/admin/list" element={<UserListPage/>}/>
                 </Routes>
             </BrowserRouter>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Impressum = () => {
+const Impress = () => {
     return (
         <div className="impressum">
             <h2>Imprint</h2>
@@ -13,4 +13,4 @@ const Impressum = () => {
     );
 };
 
-export default Impressum;
+export default Impress;
