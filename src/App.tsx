@@ -10,8 +10,6 @@ import VerifyEmailPage from "./04-pages/VerifyEmailPage";
 import Impress from "./04-pages/Impress";
 import UserListPage from "./04-pages/UserListPage";
 import FacebookIcon from "@mui/icons-material/GitHub";
-import TwitterIcon from "@mui/icons-material/X";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Footer from "./02-organisms/Footer";
 import {Box} from "@mui/material";
 
@@ -32,9 +30,7 @@ const legalLinks = [
 ];
 
 const socialLinks = [
-    { icon: <FacebookIcon />, label: 'GitHub', href: '#' },
-    { icon: <TwitterIcon />, label: 'X', href: '#' },
-    { icon: <LinkedInIcon />, label: 'LinkedIn', href: '#' },
+    { icon: <FacebookIcon />, label: 'GitHub', href: 'https://github.com/BambusTM/FaithSafeFX' },
 ];
 
 export default function App() {
