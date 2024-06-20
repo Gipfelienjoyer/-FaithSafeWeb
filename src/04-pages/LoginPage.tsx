@@ -41,7 +41,7 @@ function LoginPage() {
         try {
             const authService = new AuthService();
             await authService.login(values);
-            navigate("/");
+            window.location.reload();
         } catch (error) {
             setErrors({username: 'Invalid email or password'});
             console.error('LoginPage failed', error);
