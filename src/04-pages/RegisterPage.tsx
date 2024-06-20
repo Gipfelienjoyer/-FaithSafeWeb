@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import Cookies from "js-cookie";
 import RegisterForm from "../02-organisms/RegisterForm";
@@ -11,6 +11,7 @@ const validationSchema = yup.object({
     email: yup.string().email("Email isn't valid").required('Please enter an Email'),
     password: yup.string().min(8, 'Must be at least 8 characters long').required('Please enter a password').matches(/^(?=.*[A-Z])(?=.*\d).+$/, 'Must include upper, lower, and special char'),
     validatePassword: yup.string().oneOf([yup.ref('password')], 'Passwords do not match').required('Please confirm your password'),
+    agreeToTOS: yup.bool().oneOf([true], 'You must accept the terms and conditions').required('Required')
 });
 
 interface RegistrationFormValues {
@@ -18,6 +19,7 @@ interface RegistrationFormValues {
     email: string;
     password: string;
     validatePassword: string;
+    agreeToTOS: boolean;
 }
 
 export default function RegisterPage() {
@@ -28,6 +30,7 @@ export default function RegisterPage() {
         email: '',
         password: '',
         validatePassword: '',
+        agreeToTOS: false,
     }
 
     useEffect(() => {
