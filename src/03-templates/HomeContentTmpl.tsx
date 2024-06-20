@@ -2,9 +2,9 @@ import {Grid} from "@mui/material";
 import ListImage from "../02-organisms/ListImage";
 import WhyFaithSafeContent from "../01-molecules/WhyFaithSafeContent";
 import PicAndContent from "../02-organisms/PicAndContent";
-import happyCustomer1 from '../05-assets/happyCustomer1.png';
-import SC2022041200010 from '../05-assets/SC2022041200010.jpg';
-import SC202SC2024040800064 from '../05-assets/SC2024040800064.jpg';
+import passwordManagerImage from '../05-assets/passwordManager.png';
+import supportImage from '../05-assets/support.png';
+import securityImage from '../05-assets/security.png';
 import React from "react";
 import Faq from "../02-organisms/Faq";
 
@@ -31,15 +31,15 @@ export default function HomeContentTmpl() {
         <>
             <Grid container spacing={2}>
                 <PicAndContent>
-                    <ListImage imgAlt={"Happy Customer"} imgSrc={happyCustomer1}/>
+                    <ListImage imgAlt={"Happy Customer"} imgSrc={passwordManagerImage}/>
                     <WhyFaithSafeContent title={firstTitle} subtitles={firstSubtitles}/>
                 </PicAndContent>
                 <PicAndContent>
                     <WhyFaithSafeContent title={secondTitle} subtitles={secondSubtitles}/>
-                    <ListImage imgSrc={SC2022041200010} imgAlt={"Happy Customer"}/>
+                    <ListImage imgSrc={supportImage} imgAlt={"Happy Customer"}/>
                 </PicAndContent>
                 <PicAndContent>
-                    <ListImage imgSrc={SC202SC2024040800064} imgAlt={"Happy Customer"}/>
+                    <ListImage imgSrc={securityImage} imgAlt={"Happy Customer"}/>
                     <WhyFaithSafeContent title={thirdTitle} subtitles={thirdSubitles}/>
                 </PicAndContent>
                 <Faq/>

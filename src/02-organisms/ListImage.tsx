@@ -1,7 +1,7 @@
 import {Box as MuiBox, styled} from '@mui/material';
 
 const Box = styled(MuiBox)(() => ({
-    padding: '0.75em',
+    padding: '0.25em',
     border: '1px solid white',
     backgroundColor: 'white',
     display: 'flex',
