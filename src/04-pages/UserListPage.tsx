@@ -44,7 +44,7 @@ export default function UserListPage() {
             }
 
             try {
-                const users = await authService.GetAllUser(token);
+                const users = await authService.getAllUsers(token);
                 setUsers(users);
             } catch (e) {
                 setError('Failed to fetch users');
