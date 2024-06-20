@@ -13,6 +13,7 @@ import FacebookIcon from "@mui/icons-material/GitHub";
 import Footer from "./02-organisms/Footer";
 import {Box} from "@mui/material";
 import PrivacyPolicyPage from "./04-pages/PrivacyPolicyPage";
+import AboutUs from "./04-pages/AboutUsPage";
 
 const productLinks = [
     { label: 'Home', href: '/' },
@@ -21,7 +22,7 @@ const productLinks = [
 ];
 
 const companyLinks = [
-    { label: 'About us', href: '#' },
+    { label: 'About us', href: '/about' },
 ];
 
 const legalLinks = [
@@ -49,6 +50,7 @@ export default function App() {
                     <Route path="/imprint" element={<Impress/>}/>
                     <Route path="/admin/list" element={<UserListPage/>}/>
                     <Route path="/privacy" element={<PrivacyPolicyPage/>}/>
+                    <Route path="/about" element={<AboutUs/>}/>
                     </Routes >
             </BrowserRouter>
             <Box mt={'5vh'}>
