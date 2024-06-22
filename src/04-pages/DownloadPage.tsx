@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import windowsLogo from '../05-assets/windows-logo.png';
 import macLogo from '../05-assets/mac-logo.png';
+import linuxImage from '../05-assets/linux.png';
 import DownloadCards from "../02-organisms/DownloadCards";
 import {Grid, Container, Dialog, DialogTitle, DialogContent, DialogActions, Button} from "@mui/material";
 import DownloadTitle from "../02-organisms/DownloadTitle";
@@ -19,7 +20,7 @@ export interface DownloadDataProps {
 
 const downloadService = new DownloadService();
 
-async function downloadFile(fileType: 'exe' | 'msi' | 'app', setPopupOpen: React.Dispatch<React.SetStateAction<boolean>>) {
+async function downloadFile(fileType: 'exe' | 'msi' | 'dmg' | 'pkg' | 'rpm' | 'deb' , setPopupOpen: React.Dispatch<React.SetStateAction<boolean>>) {
     await downloadService.downloadFile(fileType);
     await new Promise(f => setTimeout(f, 1000));
     setPopupOpen(true);
@@ -43,7 +44,15 @@ export default function DownloadPage() {
             title: 'Mac',
             logo: macLogo,
             buttons: [
-                {label: 'Download .app', onClick: () => downloadFile('app', setPopupOpen)},
+                {label: 'Download .dmg', onClick: () => downloadFile('dmg', setPopupOpen)},
+                {label: 'Download .pkg', onClick: () => downloadFile('pkg', setPopupOpen)},
+            ],
+        },{
+            title: 'Linux',
+            logo: linuxImage,
+            buttons: [
+                {label: 'Download .rpm', onClick: () => downloadFile('rpm', setPopupOpen)},
+                {label: 'Download .deb', onClick: () => downloadFile('deb', setPopupOpen)},
             ],
         },
     ];

@@ -8,7 +8,7 @@ export default class DownloadService {
         return response.data.assets;
     }
 
-    async downloadFile(fileType: 'exe' | 'msi' | 'app'): Promise<void> {
+    async downloadFile(fileType: 'exe' | 'msi' | 'dmg' | 'pkg' | 'rpm' | 'deb'): Promise<void> {
         const assets = await this.getLatestReleaseAssets();
         const asset = assets.find(asset => asset.name.endsWith(`.${fileType}`));
         if (asset) {
