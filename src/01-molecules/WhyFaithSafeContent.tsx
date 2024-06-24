@@ -15,10 +15,11 @@ const WhyFaithSafeContent: React.FC<WhyFaithSafeContentProps> = ({ title, subtit
                 direction="column"
                 justifyContent="flex-start"
                 alignItems="flex-start"
+                margin="0"
             >
                 <Typography variant="h3">{title}</Typography>
                 {subtitles.map((subtitle, index) => (
-                    <Typography key={index} variant="h6">{subtitle}</Typography>
+                    <Typography key={index} align="left" variant="h6">{subtitle}</Typography>
                 ))}
             </Grid>
         </Box>
