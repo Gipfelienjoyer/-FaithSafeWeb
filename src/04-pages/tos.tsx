@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container, Typography, Link } from '@mui/material';
 
 const data = {
-    title: "Website Terms and Conditions of Use",
+    title: "Legal terms",
     sections: [
         {
             heading: "1. Terms",
@@ -49,7 +49,7 @@ const data = {
         },
         {
             heading: "10. Governing Law",
-            text: `Any claim related to Faithsafe's website shall be governed by the laws of [your state or country], without regard to its conflict of law provisions.`
+            text: `Any claim related to Faithsafe's website shall be governed by the laws Switzerland, without regard to its conflict of law provisions.`
         }
     ]
 };
